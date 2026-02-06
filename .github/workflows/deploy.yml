@@ -10,10 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set Git Author
-        run: |
-          git config user.email "higheun@gmail.com"
-          git config user.name "songt-50"
+      - name: Remove Git metadata
+        run: rm -rf .git
 
       - name: Deploy to Vercel
         run: npx vercel --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
